@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <h1> Registro de clientes </h1>
+    <br>
+    {{form1.as_p}}  
+    <br>  
+    <button type="submit">Enviar</button>
+
+</form>
+
+{% endblock content %}
+

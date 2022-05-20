@@ -1,35 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>Formulario</title>
-</head>
-<body>
-    <h1>Formularios desde Bulma</h1>
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <h1>Formularios desde Bootstrap</h1>
     <br>
     
-    <div class="field">
-        <div class="control is-small is-loading">
-        <input class="input is-small" type="text" placeholder="Small loading input">
+    <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-    </div>
-    <div class="field">
-        <div class="control is-loading">
-        <input class="input" type="text" placeholder="Normal loading input">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
-    </div>
-    <div class="field">
-        <div class="control is-medium is-loading">
-        <input class="input is-medium" type="text" placeholder="Medium loading input">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
-    </div>
-    <div class="field">
-        <div class="control is-large is-loading">
-        <input class="input is-large" type="text" placeholder="Large loading input">
-        </div>
-    </div>
-</body>
-</html>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      
+{% endblock content %}

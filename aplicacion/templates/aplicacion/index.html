@@ -1,26 +1,26 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  </head>
-  <body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">
-        Hello World
-      </h1>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p>
-      <p>
-        What is Lorem Ipsum?
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+{% extends 'base_layout.html' %}
+<div>
+    
+</div>
+{% block content %}
+<h5 class="text-black">Hola {{ user.username }} bienvenido a la aplicación</h5>
+  
+    <h1 class="title">El Mejor Sitio de Cervezas online!!!!</h1>
+   <br>
+   <br>
+    
+    <p class="subtitle"> <strong>Historia de la Cerveza</strong>
+        
+       <p>Origen de la cerveza</p>
+        <p>La historia de la cerveza se remonta a varios milenios atrás, probablemente los prehistóricos ya elaboraban esta bebida, aunque los primeros registros que se tienen son de la antigua Mesopotamia. 
+        Actualmente las tendencias en elaboración de cerveza están muy encaminadas hacia estilos más tradicionales elaborados de forma artesanal. 
+        La bebida que puede considerarse cerveza es la que es producida con agua, malta de cereal y lúpulo. 
+        La levadura se comenzó a agregar hace poco tiempo relativamente, cuando se descubrió. 
+        Ya que hasta entonces no se conocía su existencia y se dejaba la cerveza fermentar a temperatura ambiente, 
+        donde las levaduras salvajes hacían su trabajo y convertían el mosto en cerveza. </p>
+    </p>
+ 
+    
 
-      </p>
-    </div>
-  </section>
-  </body>
-</html>
+
+{% endblock content %}

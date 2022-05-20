@@ -1,0 +1,17 @@
+{% extends 'base_layout.html' %} 
+
+
+
+{% block content %} 
+
+{% for c in context %}
+<div class="p-3 mb-2 bg-success text-black"> 
+
+<p class="text-center font-weight-bold">{{c}}</p>
+
+</div>
+{% endfor %}
+
+
+
+{%  endblock content %}  
