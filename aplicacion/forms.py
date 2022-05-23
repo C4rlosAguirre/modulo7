@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 
 from aplicacion.models import Cliente
 from aplicacion.models import ClienteVip
+from aplicacion.models import Contacto
 
-from .models import Cliente
+from .models import Cliente, Contacto
 from .models import ClienteVip
 
             
@@ -34,3 +35,10 @@ class ClienteVipForm(forms.ModelForm):
     class Meta:
         model = ClienteVip
         fields = ('nombre','apellido','edad','email','fecha_registro','fecha_nacimiento','clave','status')
+
+
+class ContactoForm(forms.ModelForm):
+    
+    class Meta:
+        model = Contacto
+        fields = ('nombre','apellido','correo','comentario')

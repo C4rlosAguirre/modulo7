@@ -19,8 +19,24 @@
         Ya que hasta entonces no se conocía su existencia y se dejaba la cerveza fermentar a temperatura ambiente, 
         donde las levaduras salvajes hacían su trabajo y convertían el mosto en cerveza. </p>
     </p>
- 
+
+    <div class="mt-3">
+        <div class="row mb-3">
+            <div class="col-3 offset-9">
+                <a href="{% url 'crearcontacto' %}" class=2"btn btn-primary float-right">
+                    Crear comentario
+                </a>
+            </div>
+        </div>
+    </div> 
     
-
-
+    <div class="mt-3">
+        <div class="row mb-3">
+            <div class="col-3 offset-9">
+                <a href="{% url 'listarcontacto' %}" class=2"btn btn-primary float-center">
+                    Mostrar comentarios
+                </a>
+            </div>
+        </div>
+    </div> 
 {% endblock content %}

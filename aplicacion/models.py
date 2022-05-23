@@ -52,4 +52,23 @@ class ClienteVip(models.Model):
 
     def __str__(self):
         return self.apellido
-        
+
+class Proveedor(models.Model):
+    nombre = models.CharField(max_length=50)
+    proveedor = models.CharField(max_length=50)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.nombre
+
+
+class Contacto(models.Model):
+    nombre = models.CharField(blank=True, max_length=100, verbose_name='Nombre')
+    apellido = models.CharField(blank=True, max_length=100, verbose_name='Apellido')
+    correo = models.EmailField(blank=True, max_length=100, verbose_name='Correo')
+    comentario = models.CharField(blank=True, max_length=300, verbose_name='Comentario')
+    
+    def __str__(self):
+        return self.nombre
+
+    

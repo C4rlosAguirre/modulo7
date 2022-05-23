@@ -1,5 +1,7 @@
 {% extends 'base_layout.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <form action="" method="POST">
@@ -7,7 +9,7 @@
 
     <h1> Registro de clientes </h1>
     <br>
-    {{form1.as_p}}  
+    {{form1 | crispy}}  
     <br>  
     <button type="submit">Enviar</button>
 

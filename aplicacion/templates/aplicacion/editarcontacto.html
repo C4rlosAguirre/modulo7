@@ -1,0 +1,21 @@
+{% extends 'base_layout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1> Modificar Comentario </h1>
+    <br>
+
+
+<form action="" method='POST'>
+
+    {% csrf_token %}
+
+    {{form | crispy}}
+
+<button type="submit">Modificar</button>
+
+</form>
+
+{% endblock %}

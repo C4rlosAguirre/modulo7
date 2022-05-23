@@ -1,12 +1,12 @@
 from multiprocessing import context
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Cliente, ClienteVip
-from .forms import ClienteForm, ClienteVipForm, UserRegistrationForm
+from .models import Cliente, ClienteVip, Contacto
+from .forms import ClienteForm, ClienteVipForm, UserRegistrationForm, ContactoForm
 
 # Create your views here.
 @login_required
@@ -94,3 +94,43 @@ def crearcliente(request):
         return redirect('/aplicacion')
     
     return render(request, 'aplicacion/crearcliente.html', {'form1': form1}) 
+
+def crearcontacto(request):
+    form = ContactoForm(request.POST)
+    if request.method == 'POST':
+    # print(request.POST)
+        
+
+            if form.is_valid():
+                contacto = Contacto()
+                contacto.nombre = form.cleaned_data['nombre']
+                contacto.apellido = form.cleaned_data['apellido']
+                contacto.correo = form.cleaned_data['correo']
+                contacto.comentario = form.cleaned_data['comentario']
+                contacto.save()
+
+            else:
+                print('Invalido')
+        
+            return redirect('/aplicacion')
+    
+    return render(request, 'aplicacion/crearcontacto.html', {'form': form}) 
+
+def listarcontacto(request):
+    contacto = Contacto.objects.all()
+    return render(request, 'aplicacion/listarcontacto.html', {'contacto':contacto})
+
+def editarcontacto(request, id):
+    contacto = Contacto.objects.get(pk=id)
+    form = ContactoForm(instance=contacto)
+    if request.method == "POST":
+        form = ContactoForm(data=request.POST, instance=contacto)
+        form.save()
+        return redirect('listarcontacto')
+    else:
+        return render(request, 'aplicacion/editarcontacto.html', {'form': form})  
+
+def eliminarcontacto(request, id):
+    contacto = Contacto.objects.get(pk=id)    
+    contacto.delete()
+    return redirect('listarcontacto')

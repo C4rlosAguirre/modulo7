@@ -5,4 +5,6 @@ from . import models
 
 admin.site.register(models.Cliente)
 admin.site.register(models.ClienteVip)
+admin.site.register(models.Proveedor)
+admin.site.register(models.Contacto)
 #admin.site.register(models.Producto)

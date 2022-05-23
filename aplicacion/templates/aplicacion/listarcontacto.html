@@ -1,0 +1,30 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <h2>Listado de Comentarios</h2>
+    </div>
+</div>
+<br>
+<table class="table table-striped ">
+        <tr>
+            <td>ID</td>
+            <td>nombre</td>
+            <td>apellido</td>
+            <td>comentario</td>
+        </tr>
+    
+    {% for esc in contacto %}
+        <tr>
+            <td>{{esc.id | title}}</td>
+            <td>{{esc.nombre | title}}</td>
+            <td>{{esc.apellido | title}}</td>
+            <td>{{esc.comentario | title}}</td>
+            <td><a href="/aplicacion/editarcontacto/{{esc.id}}">Editar</a> --- <a href="/aplicacion/eliminarcontacto/{{esc.id}}">Eliminar</a></td> 
+        <tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
