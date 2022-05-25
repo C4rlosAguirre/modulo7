@@ -1,0 +1,34 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <h2>Listado de Proveedores</h2>
+    </div>
+</div>
+<br>
+<table class="table table-striped ">
+        <tr>
+            <td>ID</td>
+            <td>nombre</td>
+            <td>email</td>
+            <td>direccion</td>
+            <td>familia</td>
+            <td>nombrefantasia</td>
+        </tr>
+    
+    {% for esc in proveedor %}
+        <tr>
+            <td>{{esc.id | title}}</td>
+            <td>{{esc.nombre | title}}</td>
+            <td>{{esc.email | title}}</td>
+            <td>{{esc.direccion | title}}</td>
+            <td>{{esc.familia | title}}</td>
+            <td>{{esc.nombrefantasia | title}}</td>
+            <td><a href="/aplicacion/editarproveedor/{{esc.id}}">Editar</a> --- <a href="/aplicacion/eliminarproveedor/{{esc.id}}">Eliminar</a></td> 
+        <tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

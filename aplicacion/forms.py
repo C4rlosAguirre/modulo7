@@ -2,13 +2,9 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from aplicacion.models import Cliente
-from aplicacion.models import ClienteVip
-from aplicacion.models import Contacto
+from aplicacion.models import Cliente, ClienteVip, Contacto, Proveedor, Tienda, Subfamilia
 
-from .models import Cliente, Contacto
-from .models import ClienteVip
-
+from .models import Cliente, Contacto, Tienda, Subfamilia, ClienteVip, Proveedor
             
 class ClienteForm(forms.ModelForm):
     class Meta:
@@ -25,7 +21,6 @@ class Meta:
     model = User
     fields = ['username','email','password','password2']
     help_texts = {k:"" for k in fields}
-
     
 #class LoginForm(forms.Form):
  #   nombre = forms.Charfield(widget=forms.TextInput)
@@ -36,9 +31,31 @@ class ClienteVipForm(forms.ModelForm):
         model = ClienteVip
         fields = ('nombre','apellido','edad','email','fecha_registro','fecha_nacimiento','clave','status')
 
-
 class ContactoForm(forms.ModelForm):
     
     class Meta:
         model = Contacto
         fields = ('nombre','apellido','correo','comentario')
+
+class ProveedorForm(forms.ModelForm):
+    
+    class Meta:
+        model = Proveedor
+        fields = ('nombre','nombrefantasia','direccion','email','familia','tienda')
+
+class TiendaForm(forms.ModelForm):
+
+    class Meta:
+        model = Tienda
+        fields = ('nombre','direccion','email')
+
+class Subfamilia(forms.ModelForm):
+
+    class Meta:
+        model = Subfamilia
+        fields = ('nombre','proveedor','tienda')               
+    
+
+
+
+

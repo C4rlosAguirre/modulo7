@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'telovendo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myproject',
+        'NAME': 'myproject2',
         'USER': 'root',
         'PASSWORD': '1234',
         'HOST': 'localhost',

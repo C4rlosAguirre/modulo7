@@ -5,8 +5,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Cliente, ClienteVip, Contacto
-from .forms import ClienteForm, ClienteVipForm, UserRegistrationForm, ContactoForm
+from .models import Cliente, ClienteVip, Contacto, Proveedor, Subfamilia, Tienda
+from .forms import ClienteForm, ClienteVipForm, ProveedorForm, UserRegistrationForm, ContactoForm, TiendaForm
 
 # Create your views here.
 @login_required
@@ -134,3 +134,60 @@ def eliminarcontacto(request, id):
     contacto = Contacto.objects.get(pk=id)    
     contacto.delete()
     return redirect('listarcontacto')
+
+def crearproveedor(request):
+    form = ProveedorForm(request.POST)
+    if request.method == 'POST':
+ 
+        if form.is_valid():
+            proveedor = Proveedor()
+            proveedor.nombre = form.cleaned_data['nombre']
+            proveedor.nombrefantasia = form.cleaned_data['nombrefantasia']
+            proveedor.direccion = form.cleaned_data['direccion']
+            proveedor.email = form.cleaned_data['email']
+            proveedor.familia = form.cleaned_data['familia']    
+            proveedor.tienda = form.cleaned_data['tienda'] 
+            proveedor.save()
+        else:
+            print('Invalido')
+        
+        return redirect('/aplicacion')
+    
+    return render(request, 'aplicacion/crearproveedor.html', {'form': form}) 
+
+def creartienda(request):
+    form = TiendaForm(request.POST)
+    if request.method == 'POST':
+ 
+        if form.is_valid():
+            tienda = Tienda()
+            tienda.nombre = form.cleaned_data['nombre']
+            tienda.direccion = form.cleaned_data['direccion']
+            tienda.email = form.cleaned_data['email']
+            tienda.save()
+        else:
+            print('Invalido')
+        
+        return redirect('/aplicacion')
+    
+    return render(request, 'aplicacion/creartienda.html', {'form': form}) 
+
+def listarproveedor(request):
+    proveedor = Proveedor.objects.all()
+    return render(request, 'aplicacion/listarproveedor.html', {'proveedor':proveedor})
+
+def eliminarproveedor(request, id):
+    proveedor = Proveedor.objects.get(pk=id)    
+    proveedor.delete()
+    return redirect('listarproveedor')   
+    
+
+def editarproveedor(request, id):
+    proveedor = Proveedor.objects.get(pk=id)
+    form = ProveedorForm(instance=proveedor)
+    if request.method == "POST":
+        form = ProveedorForm(data=request.POST, instance=proveedor)
+        form.save()
+        return redirect('listarproveedor')
+    else:
+        return render(request, 'aplicacion/editarproveedor.html', {'form': form})
