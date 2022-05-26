@@ -15,3 +15,5 @@ Cada grupo tiene permisos diferenciados de acuerdo a sus características partic
  R.- Se identifican en archivo adjunto imagenes de los 3 grupos y se muestran usuarios que representan
  los dos grupos solicitados, un grupo administrador y un grupo vendedor.  Ambos grupos tiene sus respectivos permisos de 
  acuerdo a su rol en el proceso de la administración de la página y/o al negocio. 
+
+ 
