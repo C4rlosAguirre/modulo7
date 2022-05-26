@@ -44,5 +44,11 @@ sino que se crea una nueva rama donde se puede modificar el
 codigo defectuoso y seguir avanzando.  Adicionalmente en esta nueva
 rama se puede utilizar el metodo git revert el cual 
 si puede revertir los cambios hasta el momento de la creación
-de la rama.   
+de la rama.     El error irreversible se da cuando se produce un 
+problema con el desarrollo actual y se daña el código, si esto sucede
+se puede realizar un git revert y volver a un punto de restauración 
+y continuar con el código sin problemas de pérdidas.  Se debe hacer 
+un commit cada vez que se cumple un hito importante en el avance
+del proyecto para seguir manteniendo la integridad.
+
 
