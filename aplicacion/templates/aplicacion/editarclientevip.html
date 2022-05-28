@@ -7,13 +7,12 @@
 <form action="" method="POST">
     {% csrf_token %}
 
-    <h1> Ingreso de clientes </h1>
+    <h1> Editar clientes </h1>
     <br>
     {{form | crispy}}  
     <br>  
-    <button type="submit">Enviar</button>
+    <button type="submit">Modificar</button>
 
 </form>
 
 {% endblock content %}
-

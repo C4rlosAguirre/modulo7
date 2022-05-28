@@ -21,7 +21,7 @@ def formulario(request):
     return render(request,'aplicacion/formulario.html')
 
 def create(request):
-    form = ClienteForm(request.POST)
+    form = ClienteForm()
     if request.method == 'POST':
     # print(request.POST)
         
@@ -41,7 +41,7 @@ def create(request):
         
         return redirect('/aplicacion')
     
-    return render(request, 'aplicacion/create.html', {'form': form}) 
+    return render(request, 'aplicacion/crearcliente.html', {'form': form}) 
 
 def register(request):
     if request.method == "POST":
@@ -70,7 +70,7 @@ def consultaclientes(request):
     return render(request, 'aplicacion/consultaclientes.html', {'context':context})  #,'context2':context2
 
 
-def crearcliente(request):
+def crearclientevip(request):
     form1 = ClienteVipForm(request.POST)
     if request.method == 'POST':
     # print(request.POST)
@@ -93,7 +93,7 @@ def crearcliente(request):
         
         return redirect('/aplicacion')
     
-    return render(request, 'aplicacion/crearcliente.html', {'form1': form1}) 
+    return render(request, 'aplicacion/crearclientevip.html', {'form1': form1}) 
 
 def crearcontacto(request):
     form = ContactoForm(request.POST)
@@ -191,3 +191,24 @@ def editarproveedor(request, id):
         return redirect('listarproveedor')
     else:
         return render(request, 'aplicacion/editarproveedor.html', {'form': form})
+
+
+def listarclientevip(request):
+    clientevip = ClienteVip.objects.all()
+    return render(request, 'aplicacion/listarclientevip.html', {'clientevip':clientevip})
+
+
+def editarclientevip(request, id):
+    clientevip = ClienteVip.objects.get(pk=id)
+    form = ClienteVipForm(instance=clientevip)
+    if request.method == "POST":
+        form = ClienteForm(data=request.POST, instance=clientevip)
+        form.save()
+        return redirect('listarclientevip')
+    else:
+        return render(request, 'aplicacion/editarclientevip.html', {'form': form}) 
+
+def eliminarclientevip(request, id):
+    clientevip = ClienteVip.objects.get(pk=id)    
+    clientevip.delete()
+    return redirect('listarclientevip')   

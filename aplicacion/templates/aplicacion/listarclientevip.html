@@ -1,0 +1,40 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <h2>Listado de Clientes</h2>
+    </div>
+</div>
+<br>
+<table class="table table-striped ">
+        <tr>
+            <td>ID</td>
+            <td>nombre</td>
+            <td>apellido</td>
+            <td>edad</td>
+            <td>mail</td>
+            <td>fecha_registro</td>
+            <td>fecha_nacimiento</td>
+            <td>clave</td>
+            <td>status</td>
+        </tr>
+    
+    {% for esc in clientevip %}
+        <tr>
+            <td>{{esc.id | title}}</td>
+            <td>{{esc.nombre | title}}</td>
+            <td>{{esc.apellido | title}}</td>
+            <td>{{esc.edad | title}}</td>
+            <td>{{esc.mail | title}}</td>
+            <td>{{esc.fecha_registro | title}}</td>
+            <td>{{esc.fecha_nacimiento | title}}</td>
+            <td>{{esc.clave | title}}</td>
+            <td>{{esc.status | title}}</td>
+            <td><a href="/aplicacion/editarclientevip/{{esc.id}}">Editar</a> --- <a href="/aplicacion/eliminarclientevip/{{esc.id}}">Eliminar</a></td> 
+        <tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

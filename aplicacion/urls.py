@@ -10,7 +10,7 @@ urlpatterns = [
         path('create/', views.create, name='create'),
         path('register/', views.register, name='register'),
         path('consultaclientes/', views.consultaclientes, name='consultaclientes'),
-        path('crearcliente/', views.crearcliente, name='crearcliente'),
+        path('crearclientevip/', views.crearclientevip, name='crearclientevip'),
         path('crearcontacto/', views.crearcontacto, name='crearcontacto'),
         path('listarcontacto/', views.listarcontacto, name='listarcontacto'),
         path('editarcontacto/<int:id>/', views.editarcontacto, name='editarcontacto'),
@@ -20,5 +20,8 @@ urlpatterns = [
         path('listarproveedor/', views.listarproveedor, name='listarproveedor'),
         path('editarproveedor/<int:id>/', views.editarproveedor, name='editarproveedor'),
         path('eliminarproveedor/<int:id>/', views.eliminarproveedor, name='eliminarproveedor'),
+        path('listarclientevip/', views.listarclientevip, name='listarclientevip'),
+        path('editarclientevip/<int:id>/', views.editarclientevip, name='editarclientevip'),
+        path('eliminarclientevip/<int:id>/', views.eliminarclientevip, name='eliminarclientevip'),
 
 ]
