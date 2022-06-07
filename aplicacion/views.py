@@ -41,7 +41,7 @@ def create(request):
         
         return redirect('/aplicacion')
     
-    return render(request, 'aplicacion/crearcliente.html', {'form': form}) 
+    return render(request, 'aplicacion/crearclientevip.html', {'form': form}) 
 
 def register(request):
     if request.method == "POST":
